@@ -4,19 +4,20 @@
 %define peardir %(pear config-get php_dir 2> /dev/null)
 
 Name:          horde-kolab-storage
-Version:       0.4.0
-Release:       %mkrel 2
+Version:       0.5.0
+Release:       %mkrel 1
 Summary:       A package for handling Kolab data stored on an IMAP server
 License:       LGPL
 Group:         Networking/Mail
 Url:           http://pear.horde.org/index.php?package=%{prj}
 Source0:       %{prj}-%{version}.tgz
 BuildArch:     noarch
-Requires(pre): php-pear
+Requires(pre): %{_bindir}/pear
 Requires:      php-pear
 Requires:      php-pear-Net_IMAP
 Requires:      php-pear-Mail_mimeDecode
 Requires:      php-pear-HTTP_Request
+Requires:      php-pear-Auth
 Requires:      horde-framework
 Requires:      horde-cache
 Requires:      horde-group
@@ -26,14 +27,12 @@ Requires:      horde-perms
 Requires:      horde-sessionobjects
 Requires:      horde-mime
 Requires:      horde-nls
-Requires:      horde-notification
 Requires:      horde-util
 Requires:      horde-kolab-server
 Requires:      horde-kolab-format
 BuildRequires: horde-framework
 BuildRequires: php-pear
 BuildRequires: php-pear-channel-horde
-
 
 %description
 Storing user data in an IMAP account belonging to the user is one
@@ -84,7 +83,7 @@ fi
 %dir %{peardir}/docs/Kolab_Storage/Horde
 %dir %{peardir}/docs/Kolab_Storage/Horde/Kolab
 %dir %{peardir}/docs/Kolab_Storage/Horde/Kolab/Storage
-%{peardir}/docs/Kolab_Storage/Horde/Kolab/Storage/list.php
+%{peardir}/docs/Kolab_Storage/examples/Horde/Kolab/Storage/list.php
 %{peardir}/docs/Kolab_Storage/Horde/Kolab/Storage/usage.txt
 %dir %{peardir}/tests
 %dir %{peardir}/tests/Kolab_Storage
@@ -97,4 +96,16 @@ fi
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/FolderTest.php
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/ListTest.php
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/PermsTest.php
+%{peardir}/Horde/Kolab/Storage/Namespace.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Config.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Element.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Element/Other.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Element/Personal.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Element/Shared.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Element/SharedWithPrefix.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Fixed.php
+%{peardir}/Horde/Kolab/Storage/Namespace/Imap.php
+%{peardir}/data/Kolab_Storage/Kolab_Storage-0.5.0.tgz
+%{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/AttachmentTest.php
+
 
