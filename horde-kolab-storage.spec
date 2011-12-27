@@ -1,3 +1,4 @@
+%define _requires_exceptions pear(PHPUnit/Framework.php)
 %define prj Kolab_Storage
 
 %define xmldir  %{_var}/lib/pear
@@ -5,7 +6,7 @@
 
 Name:          horde-kolab-storage
 Version:       0.5.0
-Release:       %mkrel 1
+Release:       %mkrel 2
 Summary:       A package for handling Kolab data stored on an IMAP server
 License:       LGPL
 Group:         Networking/Mail
