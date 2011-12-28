@@ -84,6 +84,10 @@ fi
 %dir %{peardir}/docs/Kolab_Storage/Horde
 %dir %{peardir}/docs/Kolab_Storage/Horde/Kolab
 %dir %{peardir}/docs/Kolab_Storage/Horde/Kolab/Storage
+%dir %{peardir}/docs/Kolab_Storage/examples
+%dir %{peardir}/docs/Kolab_Storage/examples/Horde
+%dir %{peardir}/docs/Kolab_Storage/examples/Horde/Kolab
+%dir %{peardir}/docs/Kolab_Storage/examples/Horde/Kolab/Storage
 %{peardir}/docs/Kolab_Storage/examples/Horde/Kolab/Storage/list.php
 %{peardir}/docs/Kolab_Storage/Horde/Kolab/Storage/usage.txt
 %dir %{peardir}/tests
@@ -97,6 +101,8 @@ fi
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/FolderTest.php
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/ListTest.php
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/PermsTest.php
+%dir %{peardir}/Horde/Kolab/Storage/Namespace
+%dir %{peardir}/Horde/Kolab/Storage/Namespace/Element
 %{peardir}/Horde/Kolab/Storage/Namespace.php
 %{peardir}/Horde/Kolab/Storage/Namespace/Config.php
 %{peardir}/Horde/Kolab/Storage/Namespace/Element.php
@@ -108,5 +114,7 @@ fi
 %{peardir}/Horde/Kolab/Storage/Namespace/Imap.php
 %{peardir}/data/Kolab_Storage/Kolab_Storage-0.5.0.tgz
 %{peardir}/tests/Kolab_Storage/Horde/Kolab/Storage/AttachmentTest.php
+
+
 
 
