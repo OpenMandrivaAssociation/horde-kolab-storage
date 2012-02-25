@@ -31,7 +31,7 @@ Requires:      horde-nls
 Requires:      horde-util
 Requires:      horde-kolab-server
 # Requires:      horde-kolab-format
-BuildRequires: horde-framework
+# BuildRequires: horde-framework
 BuildRequires: php-pear
 BuildRequires: php-pear-channel-horde
 
