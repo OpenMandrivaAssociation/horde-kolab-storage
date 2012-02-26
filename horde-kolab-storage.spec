@@ -6,15 +6,14 @@
 
 Name:          horde-kolab-storage
 Version:       0.5.0
-Release:       %mkrel 2
+Release:       %mkrel 3
 Summary:       A package for handling Kolab data stored on an IMAP server
 License:       LGPL
 Group:         Networking/Mail
 Url:           http://pear.horde.org/index.php?package=%{prj}
 Source0:       %{prj}-%{version}.tgz
 BuildArch:     noarch
-Requires(pre): %{_bindir}/pear
-Requires:      php-pear
+Requires(pre): php-pear
 Requires:      php-pear-Net_IMAP
 Requires:      php-pear-Mail_mimeDecode
 Requires:      php-pear-HTTP_Request
