@@ -87,3 +87,38 @@ fi
 %doc docs/Kolab_Storage/*
 %{peardir}/*
 %{xmldir}/Kolab_Storage.xml
+
+
+%changelog
+* Tue Feb 28 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-5mdv2012.0
++ Revision: 781192
++ rebuild (emptylog)
+
+* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-4
++ Revision: 780939
++ rebuild (emptylog)
+
+* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-3
++ Revision: 780787
+- changed Requires(pre): %%{_bindir}/pear to php-pear
+
+* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-2
++ Revision: 780770
+- added missing subdirs
+- added define _requires_exceptions for none existent pear(PHPUnit/Framework)
+
+* Sun Aug 08 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-1mdv2011.0
++ Revision: 567499
+- Updated to version 0.5.0
+- added version 0.5.0 source file
+
+* Tue Aug 03 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.4.0-2mdv2011.0
++ Revision: 565215
+- Increased release for rebuild
+
+* Wed Mar 17 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.4.0-1mdv2010.1
++ Revision: 522969
+- changed Requires(pre): php-pear from Requires(pre): %%{_bindir}/pear
+- import horde-kolab-storage
+
+
