@@ -1,41 +1,54 @@
-%define _requires_exceptions pear(PHPUnit/Framework.php)
 %define peardir %(pear config-get php_dir 2> /dev/null || echo %{_datadir}/pear)
 %define xmldir  /var/lib/pear
 
-Summary:		A package for handling Kolab data stored on an IMAP server
+Summary:	A package for handling Kolab data stored on an IMAP server
 Name: 		horde-kolab-storage
-Version:		0.5.0
-Release: 	%mkrel 5
-License:		LGPLv2.1
+Version:	0.5.0
+Release:	6
+License:	LGPLv2.1+
 Group:		Networking/Mail
-Source0:		http://pear.horde.org/get/Kolab_Storage-%{version}.tgz
-URL: 		http://pear.horde.org/package/Kolab_Storage
+Url: 		http://pear.horde.org/package/Kolab_Storage
+Source0:	http://pear.horde.org/get/Kolab_Storage-%{version}.tgz
 BuildRequires:	php-pear >= 1.4.7
 BuildRequires: 	php-pear-channel-horde
 Requires:	php-pear-Net_IMAP >= 1.1.0
-Requires:	php-pear-Mail_mimeDecode 
-Requires:	php-pear-HTTP_Request 
+Requires:	php-pear-Mail_mimeDecode
+Requires:	php-pear-HTTP_Request
 Requires:	horde-kolab-format
 Requires:	horde-kolab-server
 Requires:	php-pear-Auth >= 0.1.1
 Requires:	horde-cache
-Requires:	horde-group 
+Requires:	horde-group
 Requires:	horde-history
-Requires:	horde-ldap 
+Requires:	horde-ldap
 Requires:	horde-perms
 Requires:	horde-sessionobjects
 Requires:	horde-mime
 Requires:	horde-nls
-Requires:	horde-util 
+Requires:	horde-util
 Requires:	php-pear >= 1.4.0b1
 Requires: 	php-pear-channel-horde
 BuildArch:	noarch
 
 %description
-Storing user data in an IMAP account belonging to the
- user is one of the Kolab server core concepts. This package provides
- all the necessary means to deal with this type of data storage
- effectively.
+Storing user data in an IMAP account belonging to the user is one of the Kolab
+server core concepts. This package provides  all the necessary means to deal
+with this type of data storage effectively.
+
+%files
+%doc docs/Kolab_Storage/*
+%{peardir}/*
+%{xmldir}/Kolab_Storage.xml
+
+%post
+pear install --nodeps --soft --force --register-only %{xmldir}/Kolab_Storage.xml
+
+%postun
+if [ "$1" -eq "0" ]; then
+    pear uninstall --nodeps --ignore-errors --register-only pear.horde.org/Kolab_Storage
+fi
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -c -T
@@ -51,9 +64,8 @@ pear -v -c pearrc \
 %build
 
 %install
-rm -rf %{buildroot}
 pear -c pearrc install --nodeps --packagingroot %{buildroot} %{SOURCE0}
-        
+
 # Clean up unnecessary files
 rm pearrc
 rm %{buildroot}/%{peardir}/.filemap
@@ -65,60 +77,8 @@ rm %{buildroot}%{peardir}/.depdblock
 
 mv %{buildroot}/docs .
 
-
 # Install XML package description
 mkdir -p %{buildroot}%{xmldir}
 tar -xzf %{SOURCE0} package.xml
 cp -p package.xml %{buildroot}%{xmldir}/Kolab_Storage.xml
-
-%clean
-rm -rf %{buildroot}
-
-%post
-pear install --nodeps --soft --force --register-only %{xmldir}/Kolab_Storage.xml
-
-%postun
-if [ "$1" -eq "0" ]; then
-    pear uninstall --nodeps --ignore-errors --register-only pear.horde.org/Kolab_Storage
-fi
-
-%files
-%defattr(-,root,root)
-%doc docs/Kolab_Storage/*
-%{peardir}/*
-%{xmldir}/Kolab_Storage.xml
-
-
-%changelog
-* Tue Feb 28 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-5mdv2012.0
-+ Revision: 781192
-+ rebuild (emptylog)
-
-* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-4
-+ Revision: 780939
-+ rebuild (emptylog)
-
-* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-3
-+ Revision: 780787
-- changed Requires(pre): %%{_bindir}/pear to php-pear
-
-* Sun Feb 26 2012 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-2
-+ Revision: 780770
-- added missing subdirs
-- added define _requires_exceptions for none existent pear(PHPUnit/Framework)
-
-* Sun Aug 08 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.5.0-1mdv2011.0
-+ Revision: 567499
-- Updated to version 0.5.0
-- added version 0.5.0 source file
-
-* Tue Aug 03 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.4.0-2mdv2011.0
-+ Revision: 565215
-- Increased release for rebuild
-
-* Wed Mar 17 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.4.0-1mdv2010.1
-+ Revision: 522969
-- changed Requires(pre): php-pear from Requires(pre): %%{_bindir}/pear
-- import horde-kolab-storage
-
 
