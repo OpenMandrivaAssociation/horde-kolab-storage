@@ -4,7 +4,7 @@
 Summary:	A package for handling Kolab data stored on an IMAP server
 Name: 		horde-kolab-storage
 Version:	0.5.0
-Release:	6
+Release:	7
 License:	LGPLv2.1+
 Group:		Networking/Mail
 Url: 		http://pear.horde.org/package/Kolab_Storage
