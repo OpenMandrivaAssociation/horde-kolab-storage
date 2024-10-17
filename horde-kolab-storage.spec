@@ -7,7 +7,7 @@ Version:	0.5.0
 Release:	7
 License:	LGPLv2.1+
 Group:		Networking/Mail
-Url: 		http://pear.horde.org/package/Kolab_Storage
+Url: 		https://pear.horde.org/package/Kolab_Storage
 Source0:	http://pear.horde.org/get/Kolab_Storage-%{version}.tgz
 BuildRequires:	php-pear >= 1.4.7
 BuildRequires: 	php-pear-channel-horde
